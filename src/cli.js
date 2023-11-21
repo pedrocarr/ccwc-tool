@@ -4,8 +4,14 @@ import { countBytes, countCharacters, countLines, countWords } from './index.js'
 import fs from 'fs'
 const args = process.argv.slice(2);
 
-if (args.length === 0) {
-  console.log('Usage: ccwc -c|-l|-w|-m [fileName]');
+
+if (args.length === 0 ) {
+  console.error('Usage: ccwc -c|-l|-w|-m [fileName]');
+  process.exit(1);
+}
+
+if (args.length > 2) {
+  console.error('Not a valid command! Usage: ccwc -c|-l|-w|-m [fileName]');
   process.exit(1);
 }
 
@@ -38,6 +44,10 @@ try {
   }
   if (!command.includes(commandOptions)) {
     fileName = args[0];
+    if (args.length > 1) {
+      console.error("Not a valid command! Usage: ccwc -c|-l|-w|-m [fileName]");
+      process.exit(1);
+    }
     const fileContent = fs.readFileSync(fileName, 'utf-8');
     console.log(`${countLines(fileContent)} ${countWords(fileContent)} ${countBytes(fileContent)} ${fileName}`)
   }
