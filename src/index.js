@@ -1,3 +1,4 @@
+console.time('start')
 export function countBytes(data) {
     const byteLength = Buffer.byteLength(data);
     return byteLength
@@ -19,6 +20,7 @@ export function countCharacters(data) {
     const fileCharacters = data.split('').length
     return fileCharacters
 }
+console.timeEnd('start')
 
 
 
