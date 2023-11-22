@@ -11,7 +11,7 @@
     "node": "18.3.0"
   },
   "bin": {
-    "ccwc": "./src/cli.js"
+    "ccwc": "./cmd/ccwc/cli.js"
   },
   "keywords": [],
   "author": "",
