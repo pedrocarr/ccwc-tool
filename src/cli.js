@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import { countBytes, countCharacters, countLines, countWords } from './index.js'
 import fs from 'fs'
 const args = process.argv.slice(2);
