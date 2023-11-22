@@ -1,5 +1,5 @@
 {
-  "name": "wc-tool",
+  "name": "jsccwc-tool",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,6 +14,6 @@
     "ccwc": "./cmd/ccwc/cli.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Pedro Henrique Silva Carvalho",
+  "license": "MIT"
 }
