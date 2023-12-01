@@ -3,20 +3,24 @@ import { assert } from 'chai';
 
 function runCliCommand(command, callback) {
   exec(command, (error, stdout, stderr) => {
-    callback(stdout.trim());
+    if (error) {
+      callback(error.message);
+    } else {
+      callback(stdout.trim());
+    }
   });
 };
 
 describe('My JavaScript WC Tool', () => {
-  it('should return the usage message if no commands are provided', (done) => {
-    runCliCommand('node ./cmd/ccwc/cli.js', (output) => {
-      assert.equal(output, 'Usage: ccwc -c|-l|-w|-m [fileName]');
+  it('should return the error message if unknown commands are provided', (done) => {
+    runCliCommand('node ./cmd/ccwc/cli.js -a test.txt', (output) => {
+      assert.include(output, 'Not a valid command! Usage: ccwc -c|-l|-w|-m [fileName]');
       done();
     });
   });
 
   it('should return the usage message if no commands are provided', (done) => {
-    runCliCommand('node ./cmd/ccwc/cli.js -a test.txt', (output) => {
+    runCliCommand('node ./cmd/ccwc/cli.js', (output) => {
       assert.equal(output, 'Usage: ccwc -c|-l|-w|-m [fileName]');
       done();
     });
@@ -57,7 +61,7 @@ describe('My JavaScript WC Tool', () => {
     });
   });
 
-  it('should return the correct number of lines with the input comes from terminal', (done) => {
+  it('should return the correct number of lines with the input comes from bash', (done) => {
     runCliCommand('cat test.txt | node ./cmd/ccwc/cli.js -l', (output) => {
       assert.equal(output, '7146');
       done();

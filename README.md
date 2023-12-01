@@ -18,6 +18,12 @@ Note that the alias for the command is on package.json and you can only use
 ccwc [options] [filename]
 ```
 
+Unit Tests
+
+```bash
+npm test
+```
+
 ## Testing
 
 ### Step 1 - Count Bytes
@@ -70,7 +76,4 @@ js-ccwc-tool % cat test.txt | wc -l
 js-ccwc-tool % cat test.txt | ccwc -l
 7146
 ```
-### Step 7 (Run Tests)
-```bash
-npm test
-```
+
