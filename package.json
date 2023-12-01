@@ -5,6 +5,7 @@
   "main": "cli.js",
   "type": "module",
   "scripts": {
+    "test": "npx mocha test/cli.test.js"
   },
   "engines": {
     "node": "18.3.0"
@@ -14,5 +15,9 @@
   },
   "keywords": [],
   "author": "Pedro Henrique Silva Carvalho",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0"
+  }
 }

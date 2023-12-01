@@ -13,13 +13,6 @@ if (args.length === 0) {
   process.exit(0);
 }
 
-
-if (args.length > 2) {
-  console.error(errorMessage);
-  process.exit(1);
-}
-
-
 let command = args[0];
 let fileName = args[1];
 const commandOptions = ['-c', '-l', '-w', '-m']
@@ -75,6 +68,6 @@ try {
     log(`${countLines(fileContent)} ${countWords(fileContent)} ${countBytes(fileContent)} ${fileName}`)
   }
 } catch (err) {
-  console.error(errorMessage);
+  console.error("Not a valid command! Usage: ccwc -c|-l|-w|-m [fileName]");
   process.exit(1);
 }

@@ -70,4 +70,7 @@ js-ccwc-tool % cat test.txt | wc -l
 js-ccwc-tool % cat test.txt | ccwc -l
 7146
 ```
-
+### Step 7 (Run Tests)
+```bash
+npm test
+```
